@@ -1,10 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PrincipalComponent } from "./components/principal/principal.component";
+import { EditarClienteComponent } from "./components/principal/editar-cliente/editar-cliente.component";
+import { InserirClienteComponent } from "./components/principal/inserir-cliente/inserir-cliente.component";
 
-const routes: Routes = [];
+export const appRoutes: Routes = [
+  { path: '', redirectTo: 'principal', pathMatch: 'full' },
+  {
+    path: 'principal', component: PrincipalComponent,
+    children: [
+      { path: 'editar', component: EditarClienteComponent },
+      { path: 'inserir', component: InserirClienteComponent },
+    ]
+  }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(appRoutes, { onSameUrlNavigation: 'reload' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
