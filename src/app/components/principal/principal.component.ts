@@ -43,7 +43,6 @@ export class PrincipalComponent implements OnInit, OnDestroy {
   }
 
   editarCliente(clienteEditar: Cliente) {
-    //console.log("Cliente Editado: "+ this.cliente.nome);
     this.principalService.editarCliente(clienteEditar).subscribe(() => {
       this.loadClientes();
       this.cliente = { id: 0, nome: '' };
@@ -55,9 +54,5 @@ export class PrincipalComponent implements OnInit, OnDestroy {
     this.principalService.inserirCliente(this.cliente).subscribe(() => {
       this.loadClientes();
     });
-  }
-
-  selecionaCliente(clienteSelecionado: Cliente) {
-      this.cliente = clienteSelecionado;
   }
 }

@@ -12,32 +12,28 @@ export class EditarClienteComponent implements OnInit {
   cliente: Cliente = { id: 0, nome: '' };
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private principalService: PrincipalService
+      private route: ActivatedRoute,
+      private router: Router,
+      private principalService: PrincipalService
   ) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      const id = Number(params['id']);
-      if (!isNaN(id)) {//testa se o id passado é um numero
+        const id = Number(params['id']);
         this.buscarClientePorId(id);
-      } else {
-        this.router.navigate(['/pagina-de-erro']);
-      }
     });
   }
 
   buscarClientePorId(id: number) {
     this.principalService.buscarCliente(id).subscribe(
-      (clienteEncontrado: Cliente) => {
+        (clienteEncontrado: Cliente) => {
         this.cliente = clienteEncontrado;
       }
     );
   }
 
   editarCliente(clienteEditar: Cliente) {
-    this.principalService.editarCliente(clienteEditar).subscribe(() => {
+        this.principalService.editarCliente(clienteEditar).subscribe(() => {
     });
   }
 }
