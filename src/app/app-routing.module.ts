@@ -6,13 +6,9 @@ import { InserirClienteComponent } from "./components/principal/inserir-cliente/
 
 export const appRoutes: Routes = [
   { path: '', redirectTo: 'principal', pathMatch: 'full' },
-  {
-    path: 'principal', component: PrincipalComponent,
-    children: [
-      { path: 'editar', component: EditarClienteComponent },
-      { path: 'inserir', component: InserirClienteComponent },
-    ]
-  }
+  { path: 'principal', component: PrincipalComponent },
+  { path: 'editar', component: EditarClienteComponent },
+  { path: 'inserir', component: InserirClienteComponent },
 ];
 
 @NgModule({

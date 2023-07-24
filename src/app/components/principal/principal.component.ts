@@ -22,7 +22,6 @@ export class PrincipalComponent implements OnInit, OnDestroy {
   constructor(public route: Router, private principalService: PrincipalService) {
   }
 
-
   ngOnInit(): void {
     this.loadClientes();
   }
@@ -38,7 +37,6 @@ export class PrincipalComponent implements OnInit, OnDestroy {
 
   deletarCliente(clienteDeletar: Cliente) {
     this.cliente = clienteDeletar;
-    console.log("Cliente Deletado: "+ clienteDeletar.nome);
     this.principalService.deletarCliente(this.cliente).subscribe(() => {
       this.loadClientes();
     });

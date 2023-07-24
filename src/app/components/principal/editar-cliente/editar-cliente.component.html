@@ -15,10 +15,10 @@
                   <input [(ngModel)]="cliente.nome" type="text" name="nome" class="form-control form-control-lg" placeholder="Nome" required>
                 </div>
 
-                <button class="btn btn-outline-success btn-lg px-5" type="submit" (click)="editarCliente(cliente)">Editar</button>
+                <button class="btn btn-outline-success btn-lg px-5" type="submit" (click)="editarCliente(cliente)" routerLink="/principal">Editar</button>
               </form>
               <div class="margin-top-5">
-                <button class="btn btn-outline-danger btn-sm " type="submit" >Cancelar</button>
+                <button class="btn btn-outline-danger btn-sm " type="submit"  routerLink="/principal">Cancelar</button>
               </div>
             </div>
 

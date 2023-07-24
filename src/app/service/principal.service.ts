@@ -14,6 +14,10 @@ export class PrincipalService extends AbstractService {
     return this.http.get<Cliente[]>(`${this.API_URL}/clientes`);
   }
 
+  buscarCliente(id: number): Observable<Cliente> {
+    return this.http.get<Cliente>(`${this.API_URL}/clientes/${id}`);
+  }
+
   deletarCliente(cliente: Cliente): Observable<void> {
     return this.http.delete<void>(`${this.API_URL}/clientes/${cliente.id}`);
   }
